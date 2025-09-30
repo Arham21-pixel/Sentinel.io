@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sentinel - Advanced Parental Control System
 
 A modern, enterprise-grade parental control system built with React, TypeScript, and cutting-edge UI components. Monitor, control, and protect your family's digital experience with professional grade features.
@@ -52,3 +53,7 @@ Open `http://localhost:5173`.
 - Add auth, audit logs, and deployment scripts for a full production setup.
 
 
+=======
+# Sentinel.io
+Parental Control Web
+>>>>>>> 40382b4d5a2b7b5cc49a85c2d0e9a85dd1b5f817
