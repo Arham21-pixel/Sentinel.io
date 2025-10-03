@@ -13,7 +13,7 @@ import { StickyScroll } from '../components/StickyScrollReveal';
 type User = { id: string; name: string; role: 'child' | 'parent' | 'admin' };
 type Rule = { id: string; name: string; expression: string; effect: 'allow' | 'block'; priority: number; enabled: boolean };
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:4000/api';
+const API_BASE = import.meta.env.VITE_API_BASE ?? '/api';
 
 export default function App() {
   const usersQuery = useQuery({
@@ -1386,54 +1386,30 @@ export default function App() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 p-1.5">
-                <Shield className="h-full w-full text-white" strokeWidth={1.5} />
+                <Shield className="h-8 w-8 text-white" />
               </div>
-              <div>
-                <p className="text-white font-semibold">Sentinel</p>
-                <p className="text-xs text-slate-400">Parental Control System</p>
+              <div className="text-sm text-slate-400">
+                <p>Powered by <span className="text-white font-semibold">Sentinel</span> • Parental Control System</p>
               </div>
             </div>
             
-            <div className="text-center">
-              <p className="text-sm text-slate-300">© {new Date().getFullYear()} Sentinel Family Safety</p>
-              <p className="text-xs text-slate-400">Keeping families safe online</p>
-            </div>
-
-            <div className="flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-xs font-medium text-green-400">Family Protected</span>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <button className="text-slate-400 hover:text-white transition-colors">
+                <Home className="h-5 w-5" />
+              </button>
+              <button className="text-slate-400 hover:text-white transition-colors">
+                <Database className="h-5 w-5" />
+              </button>
+              <button className="text-slate-400 hover:text-white transition-colors">
+                <Lock className="h-5 w-5" />
+              </button>
+              <button className="text-slate-400 hover:text-white transition-colors">
+                <Brain className="h-5 w-5" />
+              </button>
             </div>
           </div>
         </div>
       </footer>
-
-      {/* User Management Modal */}
-      <UserModal
-        isOpen={isUserModalOpen}
-        onClose={() => {
-          setIsUserModalOpen(false);
-          setSelectedUserForEdit(null);
-          setIsAddingUser(false);
-        }}
-        user={selectedUserForEdit}
-        onSave={handleAddUser}
-        onDelete={handleDeleteUser}
-        isAdding={isAddingUser}
-      />
-
-      {/* Rule Management Modal */}
-      <RuleModal
-        isOpen={isRuleModalOpen}
-        onClose={() => {
-          setIsRuleModalOpen(false);
-          setSelectedRuleForEdit(null);
-          setIsAddingRule(false);
-        }}
-        rule={selectedRuleForEdit}
-        onSave={handleAddRule}
-        onDelete={handleDeleteRule}
-        isAdding={isAddingRule}
-      />
     </div>
   );
 }
