@@ -1,5 +1,10 @@
 {
-  "name": "sentinel-parental-control",
+  "name": "sentinel-monorepo",
+  "private": true,
+  "workspaces": [
+    "server",
+    "web"
+  ],
   "version": "1.0.0",
   "description": "Full-stack parental control system with React frontend and Express backend",
   "scripts": {
